@@ -1,5 +1,3 @@
-# Data_Structure_And_Algos
-
 # Description:
 
 Welcome to the "C# LeetCode Practice with NUnit" repository! 🚀 This repository contains a collection of 150 coding practice solutions for LeetCode problems using the C# programming language. Each solution is accompanied by its corresponding test cases written using the NUnit testing framework.
