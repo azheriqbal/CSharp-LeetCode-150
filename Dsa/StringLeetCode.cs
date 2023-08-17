@@ -8,6 +8,30 @@ namespace Dsa
 {
     public class StringLeetCode
     {
+        public static bool IsAnagram(string s, string t)
+        {
+            if(s.Length != t.Length) return false;
+
+            int[] charCount = new int[26];
+
+            foreach(char c in s) 
+            {
+                charCount[c - 'a']++;
+            }
+
+            foreach(char c in t)
+            {
+                charCount[c - 'a']--;
+            }
+
+            foreach (int count in charCount)
+            {
+                if (count != 0)
+                    return false;
+            }
+
+            return true;
+        }
         public static bool IsValidParanthesis(string s)
         {
             var stack = new Stack<char>();
