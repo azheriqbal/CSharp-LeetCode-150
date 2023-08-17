@@ -8,6 +8,33 @@ namespace Dsa
 {
     public class StringLeetCode
     {
+        public static bool IsValidParanthesis(string s)
+        {
+            var stack = new Stack<char>();
+            foreach(char c in s)
+            {
+                if(c == '(' || c == '{' || c == '[')
+                {
+                    stack.Push(c);
+                }
+
+                else if (c == ')' && (stack.Count == 0 || stack.Pop() != '('))
+                {
+                    return false;
+                }
+
+                else if (c == '}' && (stack.Count == 0 || stack.Pop() != '{'))
+                {
+                    return false;
+                }
+
+                else if (c == ']' && (stack.Count == 0 || stack.Pop() != '['))
+                {
+                    return false;
+                }
+            }
+            return stack.Count ==0;
+        }
         public static string ReverseWords(string s)
         {
             if (string.IsNullOrWhiteSpace(s))

@@ -10,6 +10,18 @@ namespace TestCases
     [TestFixture]
     public class StringLeetCodeTests
     {
+        [TestCase("()", ExpectedResult = true)]
+        [TestCase("()[]{}", ExpectedResult = true)]
+        [TestCase("{[()]}", ExpectedResult = true)]
+        [TestCase("(]", ExpectedResult = false)]
+        [TestCase("([)]", ExpectedResult = false)]
+        [TestCase("]", ExpectedResult = false)]
+        [TestCase("", ExpectedResult = true)]
+        public bool TestIsValidParentheses(string s)
+        {
+            return StringLeetCode.IsValidParanthesis(s);
+        }
+
         [TestCase("   hello world!  ", "world! hello")]
         [TestCase("  the  sky is   blue  ", "blue is sky the")]
         [TestCase("   a good   example   ", "example good a")]
