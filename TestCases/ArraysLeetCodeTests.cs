@@ -1,4 +1,6 @@
-﻿namespace TestCases
+﻿using Dsa;
+
+namespace TestCases
 {
     [TestFixture]
     public class ArraysLeetCodeTests
