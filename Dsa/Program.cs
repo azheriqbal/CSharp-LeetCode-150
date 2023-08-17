@@ -1,7 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Dsa;
 
+string s = " He is  good ";
 
-Console.WriteLine("Hello, World!");
+Console.WriteLine(StringLeetCode.ReverseWords(s));
 
 
