@@ -4,30 +4,34 @@ using LeetCode;
 using System.Text;
 using static LeetCode.LinkedListS;
 
-string s = "a-bC-dEf-ghIj";
 
-char[] sa = s.ToCharArray();
+int[] a = { 1, 2, 3, 4 };
+int[] r =Product.ProductExceptSelf_1(a);
 
-int l = 0;
-int r =sa.Length-1;
-
-while(l < r)
+foreach (int i in r)
 {
-    if (char.IsLetter(sa[r]) && char.IsLetter(sa[l]))
-    {
-        char tem = sa[l];
-        sa[l] = sa[r];
-        sa[r]=tem;
-        l++;
-        r--;
-    }
-
+    Console.WriteLine(i);
 }
 
-foreach(char c in sa)
+
+/*Dictionary<char, int> map = new Dictionary<char, int>();
+map['b'] = 23;
+map['c'] = 23;
+map['d'] = 23;
+map['e'] = 23;
+
+
+Console.WriteLine(map.ContainsValue(03));
+Console.WriteLine(map.ContainsKey('c'));
+
+foreach (char c in map.Keys)
 {
+    int ages = map[c];
+    Console.WriteLine(ages);
     Console.WriteLine(c);
 }
+
+*/
 
 /*ListNode node1 = new ListNode(1);
 ListNode node2 = new ListNode(2);
