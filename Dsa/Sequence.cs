@@ -27,6 +27,7 @@ namespace LeetCode
             return index == 0 ? "No Sequence is Found" : str1.Substring(0, index);
 
         }
+
         public static bool IsSubsequence(string s, string t)
         {
             int sPointer = 0;
@@ -120,6 +121,27 @@ namespace LeetCode
             string[] words = s.Trim().Split(' ');
             return words[words.Length - 1].Length;*/
 
+        }
+
+        public static int ClimbStairs(int n)
+        {
+            // If there are 1 or 2 stairs, the number of ways is equal to the number of stairs
+            if (n <= 2)
+                return n;
+
+            // Create an array to store the number of ways to reach each stair position
+            int[] dp = new int[n + 1];
+            dp[1] = 1; // One way to reach the first stair
+            dp[2] = 2; // Two ways to reach the second stair
+
+            // Calculate the number of ways for each stair position from 3 to n
+            for (int i = 3; i <= n; i++)
+            {
+                // The number of ways to reach the i-th stair is the sum of ways to reach (i-1)-th and (i-2)-th stairs
+                dp[i] = dp[i - 1] + dp[i - 2];
+            }
+
+            return dp[n]; // Return the number of ways to reach the top stair
         }
     }
 }

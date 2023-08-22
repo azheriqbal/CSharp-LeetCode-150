@@ -8,6 +8,34 @@ namespace LeetCode
 {
     public class Water
     {
+        public static int MaxArea(int[] height)
+        {
+            int maxArea = 0;         // Initialize the maximum area to 0
+            int left = 0;            // Initialize the left pointer at the beginning of the array
+            int right = height.Length - 1;  // Initialize the right pointer at the end of the array
+
+            while (left < right)
+            {   // Continue as long as left pointer is to the left of the right pointer
+                int minHeight = Math.Min(height[left], height[right]);  // Calculate the minimum height between the two lines
+                int width = right - left;  // Calculate the width of the container
+                int currentArea = minHeight * width;  // Calculate the current area
+
+                maxArea = Math.Max(maxArea, currentArea);  // Update maxArea if currentArea is larger
+
+                // Move the pointer that points to the shorter line inward
+                if (height[left] < height[right])
+                {
+                    left++;
+                }
+                else
+                {
+                    right--;
+                }
+            }
+
+            return maxArea;  // Return the maximum area
+        }
+
         public static int Trap(int[] height)
         {
             int n = height.Length;

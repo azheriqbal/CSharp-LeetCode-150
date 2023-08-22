@@ -10,6 +10,16 @@ namespace TestCases
     [TestFixture]
     public class StringLeetCodeTests
     {
+        [TestCase("Hello, world!", "world", 7)]
+        [TestCase("Hello, world!", "foo", -1)]
+        [TestCase("Hello, world!", "", 0)]
+        [TestCase("abcdef", "cd", 2)]
+        public void TestStrStr(string haystack, string needle, int expected)
+        {
+            int result = StringLeetCode.StrStr(haystack, needle);
+            Assert.AreEqual(expected, result);
+        }
+
         [TestCase("anagram", "nagaram", ExpectedResult = true)]
         [TestCase("hello", "world", ExpectedResult = false)]
         [TestCase("", "", ExpectedResult = true)]

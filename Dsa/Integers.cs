@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,27 @@ namespace LeetCode
         }
 
 
+        public static int[] PlusOne(int[] digits)
+        {
+            // Iterate through the array from right to left
+            for (int i = digits.Length - 1; i >= 0; i--)
+            {
+                // If the current digit is 9, set it to 0 and continue to the next digit
+                if (digits[i] == 9)
+                {
+                    digits[i] = 0;
+                }
+                else
+                {
+                    // If the current digit is not 9, increment it by 1 and return the array
+                    digits[i]++;
+                    return digits;
+                }
+            }
+
+            // If all digits were 9, we need to add a new digit at the beginning
+            int[] firstOne = new int[] { 1 };
+            return firstOne.Concat(digits).ToArray();
+        }
     }
-
-
 }

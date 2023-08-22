@@ -5,13 +5,27 @@ using System.Text;
 using static LeetCode.LinkedListS;
 
 
-int[] a = { 1, 2, 3, 4 };
-int[] r =Product.ProductExceptSelf_1(a);
+int[] arr = { 1, 2, 3, 4,6 };
+int n = arr.Length;
+int maxSum = 0;
+int currentSum = 0;
+int k = 3;
 
-foreach (int i in r)
+// Calculate the sum of the first k elements
+for (int i = 0; i < k; i++)
 {
-    Console.WriteLine(i);
+    currentSum += arr[i];
+    Console.WriteLine(arr[i]);
 }
+maxSum = currentSum;
+
+for (int i = k; i < n; i++)
+{
+    // Add the next element and subtract the first element in the window
+    currentSum = currentSum + arr[i] - arr[i - k];
+    maxSum = Math.Max(maxSum, currentSum);
+}
+Console.WriteLine(maxSum);
 
 
 /*Dictionary<char, int> map = new Dictionary<char, int>();

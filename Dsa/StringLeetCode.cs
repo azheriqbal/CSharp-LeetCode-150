@@ -8,6 +8,25 @@ namespace Dsa
 {
     public class StringLeetCode
     {
+        //28. Find the Index of the First Occurrence in a String
+        public static int StrStr(string haystack, string needle)
+        {
+            for (int i = 0; i < haystack.Length - needle.Length + 1; i++)
+            {
+                if (haystack[i] == needle[0])
+                {
+                    if (haystack.Substring(i, needle.Length) == needle)
+                    {
+                        return i;
+                    }
+
+                }
+            }
+
+            return -1;
+            /*return haystack.IndexOf(needle);*/
+        }
+
         public static bool IsAnagram(string s, string t)
         {
             if(s.Length != t.Length) return false;
@@ -32,6 +51,7 @@ namespace Dsa
 
             return true;
         }
+
         public static bool IsValidParanthesis(string s)
         {
             var stack = new Stack<char>();
@@ -59,6 +79,7 @@ namespace Dsa
             }
             return stack.Count ==0;
         }
+
         public static string ReverseWords(string s)
         {
             if (string.IsNullOrWhiteSpace(s))

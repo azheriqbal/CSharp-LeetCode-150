@@ -127,5 +127,28 @@ namespace Dsa
 
         }
 
+        public static int MinSizeSubarraySum(int[] arr, int target)
+        {
+            int n = arr.Length;
+            int minLength = int.MaxValue; // Initialize minLength to a large value
+            int windowSum = 0; // Initialize the sum of the current window
+            int left = 0; // Initialize the left pointer
+
+            for (int right = 0; right < n; right++)
+            {
+                windowSum += arr[right]; // Expand the window by adding the current element
+
+                while (windowSum >= target)
+                {
+                    minLength = Math.Min(minLength, right - left + 1); // Update minLength if a smaller subarray is found
+                    windowSum -= arr[left]; // Shrink the window by removing the left element
+                    left++; // Move the left pointer to the right
+                }
+            }
+
+            return minLength == int.MaxValue ? 0 : minLength; // Return the found minLength or 0 if no valid subarray found
+
+
+        }
     }
 }
