@@ -5,28 +5,61 @@ using System.Text;
 using static LeetCode.LinkedListS;
 
 
-int[] arr = { 1, 2, 3, 4,6 };
-int n = arr.Length;
-int maxSum = 0;
-int currentSum = 0;
-int k = 3;
 
-// Calculate the sum of the first k elements
-for (int i = 0; i < k; i++)
+
+Recursion.PrintNumber(5);
+
+/*int f = Recursion.Factorial(9);
+Console.WriteLine(f);*//*
+
+int[] arr = { 2, 3, 487,1, 10, 40 };
+
+int max = arr[1];
+int current = arr[1];
+
+foreach (int i in arr)
 {
-    currentSum += arr[i];
-    Console.WriteLine(arr[i]);
+    current = i;
+    max = Math.Min(max, current);
 }
-maxSum = currentSum;
 
-for (int i = k; i < n; i++)
+Console.WriteLine(max);*/
+
+/*int n = 723421;
+
+if(n % 2 == 0)
 {
-    // Add the next element and subtract the first element in the window
-    currentSum = currentSum + arr[i] - arr[i - k];
-    maxSum = Math.Max(maxSum, currentSum);
+    Console.WriteLine("The no is Even");
 }
-Console.WriteLine(maxSum);
+else
+{
+    Console.WriteLine("The no is odd");
+}*/
 
+/*LinkedList<int> list = new LinkedList<int>();
+
+list.AddFirst(1);
+list.AddFirst(3);
+list.AddFirst(34);
+list.AddFirst(2);
+
+Console.WriteLine(list.Count);
+list.ToArray();*/
+
+/*foreach (int i in list)
+{
+    Console.WriteLine(i);
+
+}*/
+
+/*int res = 1;
+
+for(int i = 1; i <= 7; i++)
+{
+    res *=i;
+}
+
+Console.WriteLine(res);*/
 
 /*Dictionary<char, int> map = new Dictionary<char, int>();
 map['b'] = 23;

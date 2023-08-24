@@ -53,5 +53,26 @@ namespace LeetCode
             throw new ArgumentException("No solution found.");
         }
 
+        public static int MaxSumSubarray(int[] nums, int k)
+        {
+            int n = nums.Length;
+            int winSum = 0;
+
+            for (int i= 0;i < k; i++) 
+            {
+                winSum += nums[i];
+            }
+
+            int maxSum = winSum;
+
+            for(int i=k; i<n; i++)
+            {
+                winSum= winSum + nums[i] - nums[i-k];
+                maxSum = Math.Max(maxSum, winSum);
+
+            }
+            return maxSum;
+        }
+
     }
 }
